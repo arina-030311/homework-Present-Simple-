@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Present Simple: задание Путешественницы</title>
+<style>
+:root{--bg:#141a35;--bg2:#222b55;--gold:#e9c46a;--gold2:#b8914a;--paper:#f6eedb;--ink:#2a2f4f;--ok:#2f8f62;--bad:#c4503f;--mut:#6b7090;--c:#74c2a8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:17px/1.5 "Trebuchet MS",Verdana,sans-serif;
+background:radial-gradient(circle at 20% 10%,#2c3768 0,transparent 45%),radial-gradient(circle at 85% 90%,#3a2d62 0,transparent 40%),var(--bg);
+background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;
+background-image:radial-gradient(2px 2px at 12% 22%,#fff8,transparent),radial-gradient(1.5px 1.5px at 70% 12%,#fff8,transparent),radial-gradient(2px 2px at 40% 80%,#fff6,transparent),radial-gradient(1.5px 1.5px at 90% 55%,#fff7,transparent),radial-gradient(1.5px 1.5px at 6% 70%,#fff6,transparent)}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:14px 14px 60px;position:relative}
+.top{display:flex;align-items:center;gap:12px;color:var(--gold);font-family:Georgia,serif;margin-bottom:14px}
+.bar{flex:1;height:8px;background:#ffffff1c;border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));transition:width .4s}
+.top small{font-size:14px;white-space:nowrap}
+.card{background:var(--paper);border:2px solid var(--gold);border-radius:6px 22px 6px 22px;padding:20px;box-shadow:0 0 0 4px #e9c46a22,0 12px 30px #0006;margin-bottom:16px}
+.card.hero{text-align:center;padding:30px 20px}
+.star{width:54px;height:54px;color:var(--gold2)}
+.hero h1{font-size:30px;line-height:1.15;margin:8px 0}
+.hero p{margin:6px auto;max-width:480px;color:#454a6e}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.badge{flex:none;width:42px;height:42px;background:var(--c);color:#fff;display:grid;place-items:center;font:700 20px Georgia,serif;transform:rotate(45deg);border-radius:8px;border:2px solid #fff8}
+.badge span{transform:rotate(-45deg);text-shadow:0 1px 2px #0005}
+.head h2{font-size:22px}
+.ins{margin:2px 0 14px;color:#454a6e;padding-left:54px}
+.item{padding:12px 0;border-top:1px dashed #b8914a77}
+.item:first-of-type{border-top:0}
+.q{font-size:20px;margin-bottom:8px}
+input[type=text],textarea{font:inherit;font-size:19px;padding:6px 10px;border:2px solid #b9b4a0;border-radius:10px;background:#fff;color:var(--ink);width:150px;max-width:100%}
+textarea{width:100%;min-height:56px;resize:vertical}
+input:focus,textarea:focus,button:focus-visible{outline:3px solid #4cc2f1aa;outline-offset:2px}
+input.ok{border-color:var(--ok);background:#e6f6ec}input.bad{border-color:var(--bad);background:#fdeceA}
+button{font:inherit;cursor:pointer}
+.btn{background:linear-gradient(#f0d58a,var(--gold));color:#3b2f10;border:2px solid var(--gold2);border-radius:12px;padding:8px 18px;font-weight:700;box-shadow:0 3px 0 var(--gold2)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--gold2)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.ghost{background:transparent;box-shadow:none;border-color:#b9b4a0;color:var(--mut);font-weight:400}
+.btn.sm{padding:5px 14px;margin-left:6px}
+.opts,.pool,.buckets{display:flex;flex-wrap:wrap;gap:8px}
+.opt,.chip{background:#fff;border:2px solid #cfc8b0;border-radius:12px;padding:7px 16px;font-size:19px;color:var(--ink);transition:.15s}
+.opt:hover:not(:disabled),.chip:hover{border-color:var(--gold2)}
+.opt.sel,.chip.sel{background:#fff3cf;border-color:var(--gold2);box-shadow:0 0 0 3px #e9c46a66}
+.opt.ok{background:#e1f4e9;border-color:var(--ok)}.opt.bad{background:#fbe4df;border-color:var(--bad)}
+.fb{margin-top:8px;padding:0;font-size:16px;min-height:0}
+.fb.good,.fb.bad,.fb.info{padding:8px 12px;border-radius:10px}.fb.good{background:#e1f4e9;color:#1d5c3e}.fb.bad{background:#fbe4df;color:#7d2b1f}.fb.info{background:#e8ecf8}
+mark{background:#ffd9d2;color:#9c2d1c;border-radius:4px;padding:0 4px}
+.bk{flex:1;min-width:150px;border:2px dashed var(--gold2);border-radius:14px;padding:8px;min-height:110px;background:#fff8;cursor:pointer}
+.bk b{display:block;text-align:center;font:700 19px Georgia,serif;color:var(--gold2);margin-bottom:6px}
+.bk .chip{display:block;margin:4px 0;padding:3px 10px;font-size:17px;background:#e1f4e9;border-color:var(--ok);cursor:default}
+.bk.hot{background:#fff3cf}
+.line{min-height:52px;border-bottom:3px solid var(--gold2);display:flex;flex-wrap:wrap;gap:8px;padding:6px 0;margin-bottom:10px;align-items:center}
+.line:empty:before{content:"Нажимай на слова ниже…";color:#9a9bb2;font-size:16px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
+.rule-t{border-collapse:collapse;margin:8px auto;font-size:20px}
+.rule-t td{padding:3px 10px}.rule-t td:first-child{text-align:right;color:#454a6e}
+.s{color:#d6247a;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.rc{background:#fff;border-radius:14px;border:2px solid #e3dbc3;padding:10px 14px;font-size:18px}
+.rc h3{font-size:17px;margin-bottom:4px;color:var(--gold2)}
+.rc div{padding:1px 0}
+.sc{font:700 54px Georgia,serif;color:var(--gold2);line-height:1}
+.mist{text-align:left;font-size:16px;margin:10px 0;padding-left:20px}
+#fall{display:none;width:100%;height:150px;font-size:14px;margin-top:10px}
+.cp{font-weight:700;margin-top:10px;min-height:26px}
+@media(max-width:520px){body{font-size:16px}.ins{padding-left:0}.hero h1{font-size:25px}.q{font-size:18px}.bk{min-width:100%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><svg class="star" style="width:26px;height:26px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.8 6.5 4.5 10.2 12 12-7.5 1.8-11.2 5.5-12 12-.8-6.500-4.500-10.200-12-12C7.500 10.200 11.200 6.500 12 0z"/></svg><div class="bar"><i id="pb"></i></div><small id="pt"></small></div>
+ <div id="main"><div class="card hero"><h1>Открой файл в браузере</h1><p>Задания не запускаются в окне предпросмотра. Нажми «Поделиться» и выбери Safari или Chrome (или «Открыть в браузере»). Если ты видишь только этот текст, значит JavaScript не работает.</p></div></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e};
+const KEY='ps_quest_v1';
+let S=null;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+S=S||{name:'',step:0,r:{}};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const R=(t,i)=>{S.r[t]=S.r[t]||{};return S.r[t][i]=S.r[t][i]||{att:[],done:false,ok:false,first:false}};
+const strip=h=>h.replace(/<[^>]+>/g,'');
+const STAR='<svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.8 6.5 4.5 10.2 12 12-7.5 1.8-11.2 5.5-12 12-.8-6.5-4.5-10.2-12-12C7.5 10.2 11.200 6.500 12 0z"/></svg>';
+
+const BK={s:'+ s',es:'+ es',ies:'y → ies'};
+const T=[
+{t:'Кто просит -s?',c:'#74c2a8',ty:'multi',ins:'Нажми на все местоимения, после которых к глаголу добавляется -s. Потом нажми «Проверить».',
+ items:[{o:['I','you','he','she','it','we','they'],a:['he','she','it'],h:'Посмотри на таблицу правила: скобка с -s стоит только у трёх слов.',e:'he, she, it → run<b>s</b>. С остальными местоимениями глагол не меняется.'}]},
+{t:'Run или runs?',c:'#4cc2f1',ty:'choice',ins:'Выбери правильную форму глагола. Здесь одна попытка, поэтому подумай!',items:[
+ {q:'I ___ every morning.',o:['run','runs'],a:'run',e:'I → глагол без -s: I run.'},
+ {q:'She ___ every day.',o:['dance','dances'],a:'dances',e:'She → добавляем -s. В dance уже есть e, поэтому просто dances.'},
+ {q:'They ___ a song.',o:['sing','sings'],a:'sing',e:'They → без -s: They sing.'},{q:'He ___ very fast.',o:['run','runs'],a:'runs',e:'He → run<b>s</b>.'},
+ {q:'We ___ English at school.',o:['study','studies'],a:'study',e:'We → без изменений: We study.'},
+ {q:'My brother ___ every evening.',o:['study','studies'],a:'studies',e:'My brother = he. Перед y стоит согласная d, поэтому y → ies: studies.'}]},
+{t:'Сортировка по правилам',c:'#f0b232',ty:'sort',ins:'Как глагол меняется после he / she / it? Нажми на слово, а потом на нужную «корзину».',items:[
+ {w:'run',b:'s',e:'run → runs. Обычное слово: просто +s.'},
+ {w:'go',b:'es',e:'go → goes. После o добавляем es.'},
+ {w:'watch',b:'es',e:'watch → watches. После ch добавляем es.'},
+ {w:'study',b:'ies',e:'study → studies. Перед y согласная d, поэтому y меняем на ies.'},
+ {w:'sing',b:'s',e:'sing → sings. Обычное слово: +s.'},
+ {w:'finish',b:'es',e:'finish → finishes. После sh добавляем es.'},
+ {w:'play',b:'s',e:'play → plays. Перед y стоит гласная a, поэтому просто +s.'},
+ {w:'dance',b:'s',e:'dance → dances. В слове уже есть e, добавляем только s.'}]},
+{t:'Допиши глагол',c:'#a5c83b',ty:'input',ins:'Впиши глагол в скобках в нужной форме. Всего три попытки, будут подсказки.',items:[
+ {q:'My sister ___ (dance) every day.',a:'dances',h:'dance уже оканчивается на e, добавь только s.',e:'dance → dances.'},
+ {q:'He ___ (go) to school at eight.',a:'goes',h:'После o нужно es.',e:'go → goes.'},
+ {q:'She ___ (study) English.',a:'studies',h:'Перед y стоит согласная d: y меняем на ies.',e:'study → studies.'},
+ {q:'The boy ___ (watch) TV.',a:'watches',h:'watch оканчивается на ch: добавь es.',e:'watch → watches.'},
+ {q:'Mum ___ (finish) work at six.',a:'finishes',h:'finish оканчивается на sh: добавь es.',e:'finish → finishes.'},
+ {q:'My brother ___ (play) football.',a:'plays',h:'Перед y стоит гласная a: просто добавь s.',e:'play → plays.'},
+ {q:'She ___ (have) a cat.',a:'has',h:'Особое слово: I have → he has.',e:'have → has.'},
+ {q:'The dog ___ (run) in the park.',a:'runs',h:'Обычное слово: просто +s.',e:'run → runs.'}]},
+{t:'Найди ошибку',c:'#ef7a35',ty:'input',ins:'В каждом предложении красным отмечено слово с ошибкой. Впиши, как правильно.',items:[
+ {fix:1,q:'She <mark>go</mark> to school.',a:'goes',h:'После o нужно es.',e:'She go → She goes.'},
+ {fix:1,q:'He <mark>studys</mark> English.',a:'studies',h:'Перед y стоит согласная: y меняем на ies.',e:'studys → studies.'},
+ {fix:1,q:'My mum <mark>watchs</mark> TV.',a:'watches',h:'После ch нужно es.',e:'watchs → watches.'},
+ {fix:1,q:'Anna <mark>have</mark> a dog.',a:'has',h:'Особое слово: I have → he has.',e:'Anna = she → has.'},
+ {fix:1,q:'They <mark>runs</mark> fast.',a:'run',h:'Подумай: They — это he / she / it?',e:'They → без -s: They run.'}]},
+{t:'Собери предложение',c:'#b08fc7',ty:'build',ins:'Нажимай на слова по порядку: сначала кто, потом что делает. Чтобы убрать слово, нажми на него в строке.',items:[
+ {w:['every day','Kate','dances'],a:'Kate dances every day',e:'Kate = she → dances.'},
+ {w:['to school','goes','He'],a:'He goes to school',e:'He → goes (после o нужно es).'},
+ {w:['watches','My dad','TV'],a:'My dad watches TV',e:'My dad = he → watches (после ch нужно es).'},
+ {w:['studies','English','She'],a:'She studies English',e:'She → studies (y → ies).'},
+ {w:['a song','They','sing'],a:'They sing a song',e:'They → без -s: sing.'}]},
+{t:'Напиши сама',c:'#9fd6e3',ty:'open',ins:'Напиши 3 предложения про человека, которого ты знаешь (мама, папа, друг). Используй he или she и глаголы: run, dance, sing, study, watch TV, go to school, play. Эти ответы увидит учитель.',
+ items:[{p:'Например: My mum sings very well.'},{p:'Второе предложение…'},{p:'Третье предложение…'}]}
+];
+const N=T.length,LAST=N+2;
+
+function fb(box,k,m){const f=box.querySelector('.fb');f.className='fb '+k;f.innerHTML=m}
+function fin(ti,i,ok){const r=R(ti,i);r.done=true;r.ok=ok;r.first=ok&&r.att.length===1;save();nav()}
+function complete(ti){return T[ti].items.every((_,i)=>R(ti,i).done)}
+function nav(){const b=$('#next');if(b)b.disabled=!complete(S.step-2)}function mMulti(ti,i,it,box){
+ const r=R(ti,i),sel=new Set(),pool=el('div','pool'),chips={};
+ it.o.forEach(o=>{const c=el('button','chip',o);c.onclick=()=>{if(r.done)return;sel.has(o)?sel.delete(o):sel.add(o);c.classList.toggle('sel')};chips[o]=c;pool.append(c)});
+ const b=el('button','btn','Проверить');box.append(pool,el('div','',''),b);box.lastChild.previousSibling.style.height='10px';
+ b.onclick=()=>{if(r.done||!sel.size)return;const v=[...sel].sort().join(', ');r.att.push(v);
+  if(v===[...it.a].sort().join(', ')){fb(box,'good','Верно! '+it.e);b.disabled=true;fin(ti,i,true)}
+  else if(r.att.length>=3){it.o.forEach(o=>chips[o].classList.toggle('sel',it.a.includes(o)));fb(box,'bad','Правильно: '+it.a.join(', ')+'. '+it.e);b.disabled=true;fin(ti,i,false)}
+  else fb(box,'bad','Пока не так. Подсказка: '+it.h+(r.att.length==2?' Последняя попытка.':''))};
+ box.append(el('div','fb',''));
+ if(r.done){it.o.forEach(o=>chips[o].classList.toggle('sel',it.a.includes(o)));b.disabled=true;fb(box,r.ok?'good':'bad',it.e)}
+}
+function mChoice(ti,i,it,box){
+ const r=R(ti,i),q=el('div','q',it.q.replace('___','<b>…</b>')),o=el('div','opts');
+ const bs=it.o.map(x=>{const b=el('button','opt',x);o.append(b);return b});
+ const lock=()=>bs.forEach(b=>{b.disabled=true;if(b.textContent===it.a)b.classList.add('ok')});
+ bs.forEach(b=>b.onclick=()=>{if(r.done)return;r.att.push(b.textContent);const ok=b.textContent===it.a;if(!ok)b.classList.add('bad');lock();
+  fb(box,ok?'good':'bad',(ok?'Верно! ':'Не совсем. Правильно: <b>'+it.a+'</b>. ')+it.e);fin(ti,i,ok)});
+ box.append(q,o,el('div','fb',''));
+ if(r.done){bs.forEach(b=>{if(b.textContent===r.att[0]&&!r.ok)b.classList.add('bad')});lock();fb(box,r.ok?'good':'bad',it.e)}
+}
+function mInput(ti,i,it,box){
+ const r=R(ti,i),inp=el('input');inp.type='text';inp.autocomplete='off';inp.autocapitalize='off';inp.spellcheck=false;
+ const b=el('button','btn sm','Проверить'),q=el('div','q',it.fix?it.q:it.q.replace('___','<span class="slot"></span>'));
+ if(it.fix){const d=el('div','q','Как правильно: ');d.append(inp,b);box.append(q,d)}
+ else{q.querySelector('.slot').append(inp);q.append(b);box.append(q)}
+ box.append(el('div','fb',''));
+ const chk=()=>{if(r.done)return;const v=inp.value.trim();if(!v)return;r.att.push(v);
+  if(v.toLowerCase()===it.a){inp.className='ok';inp.disabled=b.disabled=true;fb(box,'good','Верно! '+it.e);fin(ti,i,true)}
+  else if(r.att.length>=3){inp.value=it.a;inp.className='bad';inp.disabled=b.disabled=true;fb(box,'bad','Правильно: <b>'+it.a+'</b>. '+it.e);fin(ti,i,false)}
+  else{inp.className='bad';fb(box,'bad','Пока не так. Подсказка: '+it.h+(r.att.length==2?' Последняя попытка.':''));inp.select()}};
+ b.onclick=chk;inp.onkeydown=e=>{if(e.key==='Enter')chk()};inp.oninput=()=>{if(!r.done)inp.className=''};
+ if(r.done){inp.value=r.ok?r.att[r.att.length-1]:it.a;inp.className=r.ok?'ok':'bad';inp.disabled=b.disabled=true;fb(box,r.ok?'good':'bad',it.e)}
+}
+function mBuild(ti,i,it,box){
+ const r=R(ti,i),ch=[],line=el('div','line'),pool=el('div','pool'),b=el('button','btn','Проверить');
+ const draw=()=>{line.innerHTML='';pool.innerHTML='';
+  ch.forEach((k,p)=>{const c=el('button','chip sel',it.w[k]);c.onclick=()=>{if(!r.done){ch.splice(p,1);draw()}};line.append(c)});
+  it.w.forEach((w,k)=>{if(!ch.includes(k)){const c=el('button','chip',w);c.onclick=()=>{if(!r.done){ch.push(k);draw()}};pool.append(c)}})};
+ box.append(line,pool,el('div','',''),b,el('div','fb',''));box.children[2].style.height='10px';
+ const txt=()=>ch.map(k=>it.w[k]).join(' ');
+ b.onclick=()=>{if(r.done)return;if(ch.length<it.w.length){fb(box,'info','Используй все слова.');return}const v=txt();r.att.push(v);
+  if(v===it.a){fb(box,'good','Верно! '+it.e+' Предложение: <b>'+it.a+'.</b>');b.disabled=true;draw();fin(ti,i,true)}
+  else if(r.att.length>=3){pool.innerHTML='';line.innerHTML='';line.append(el('span','q',it.a+'.'));fb(box,'bad','Правильно: <b>'+it.a+'.</b> '+it.e);b.disabled=true;fin(ti,i,false)}else fb(box,'bad','Пока не так. Подумай: сначала кто, потом что он или она делает.'+(r.att.length==2?' Последняя попытка.':''))};
+ if(r.done){b.disabled=true;line.innerHTML='';line.append(el('span','q',it.a+'.'));fb(box,r.ok?'good':'bad',it.e)}else draw();
+}
+function mOpen(ti,i,it,box){
+ const r=R(ti,i),ta=el('textarea');ta.placeholder=it.p;ta.value=r.att[0]||'';
+ ta.oninput=()=>{r.att=[ta.value];r.done=ta.value.trim().length>=6;r.ok=r.done;save();nav()};
+ box.append(el('div','q',(i+1)+'.'),ta);
+}
+function mSort(ti,t,box){
+ let sel=-1;const pool=el('div','pool'),bks=el('div','buckets'),f=el('div','fb','');
+ const draw=()=>{pool.innerHTML='';bks.innerHTML='';
+  const bx={};Object.keys(BK).forEach(k=>{const d=el('div','bk','<b>'+BK[k]+'</b>');d.onclick=()=>drop(k);bx[k]=d;bks.append(d)});
+  t.items.forEach((it,i)=>{const r=R(ti,i);
+   if(r.done)bx[it.b].append(el('span','chip',it.w));
+   else{const c=el('button','chip'+(sel===i?' sel':''),it.w);c.onclick=()=>{sel=sel===i?-1:i;draw()};pool.append(c)}})};
+ const drop=k=>{if(sel<0){fb(box,'info','Сначала нажми на слово.');return}
+  const it=t.items[sel],r=R(ti,sel);r.att.push(BK[k]);
+  if(k===it.b){fb(box,'good','Верно! '+it.e);const i=sel;sel=-1;fin(ti,i,true)}
+  else if(r.att.length>=3){fb(box,'bad','Это слово перейдёт в нужную корзину. '+it.e);const i=sel;sel=-1;fin(ti,i,false)}
+  else{fb(box,'bad','Не туда. Подсказка: '+hint(it)+(r.att.length==2?' Последняя попытка.':''))}
+  save();draw();if(complete(ti))fb(box,'info',f.innerHTML+' <br><b>Все слова разложены!</b>')};
+ const hint=it=>({s:'это слово просто получает +s.',es:'слово оканчивается на o, ch или sh.',ies:'перед y стоит согласная.'}[it.b]);
+ box.append(pool,el('div','',''),bks,f);box.children[1].style.height='12px';draw();
+}
+function mount(ti,box){const t=T[ti];
+ if(t.ty==='sort'){mSort(ti,t,box);return}
+ t.items.forEach((it,i)=>{const d=el('div','item');box.append(d);({multi:mMulti,choice:mChoice,input:mInput,build:mBuild,open:mOpen})[t.ty](ti,i,it,d)})}
+
+function head(ti){const t=T[ti];return `<div class="head"><div class="badge" style="--c:${t.c}"><span>${ti+1}</span></div><h2>${t.t}</h2></div><p class="ins">${t.ins}</p>`}
+function show(){
+ const main=$('#main');main.innerHTML='';const st=S.step;
+ $('#pb').style.width=(st/LAST*100)+'%';$('#pt').textContent=st>=2&&st<=N+1?'Задание '+(st-1)+' из '+N:'';
+ window.scrollTo(0,0);
+ if(st===0){
+  const c=el('div','card hero',STAR+'<h1>Задание Путешественницы: как говорит Present Simple</h1><p>Тебя ждёт 7 заданий про то, что люди делают каждый день. Справишься со всеми, и учитель увидит твой отчёт.</p><p>Как тебя зовут? (можно только имя)</p>');
+  const n=el('input');n.type='text';n.style.margin='8px 0 14px';n.style.width='220px';n.value=S.name;n.placeholder='Имя';n.oninput=()=>{S.name=n.value;save()};
+  const b=el('button','btn',S.step===0&&Object.keys(S.r).length?'Продолжить':'Начать');b.onclick=()=>{S.step=1;save();show()};
+  c.append(n,el('br'),b);
+  if(Object.keys(S.r).length){const x=el('div','',''),re=el('button','btn ghost sm','Начать заново');re.onclick=restart;x.style.marginTop='12px';x.append(re);c.append(x)}
+  main.append(c);
+ }else if(st===1){
+  main.innerHTML=`<div class="card"><div class="head"><div class="badge" style="--c:#e9c46a"><span>★</span></div><h2>Вспомни правило</h2></div>
+  <table class="rule-t"><tr><td>I / you / we / they</td><td>run</td></tr><tr><td>he / she / it</td><td>run<span class="s">s</span></td></tr></table>
+  <p style="text-align:center;margin:4px 0 8px">Только после <b>he, she, it</b> к глаголу нужно добавить окончание.</p>
+  <div class="grid">
+  <div class="rc"><h3>Обычно: + s</h3><div>run → run<span class="s">s</span></div><div>sing → sing<span class="s">s</span></div><div>dance → dance<span class="s">s</span></div></div>
+  <div class="rc"><h3>o, ch, sh: + es</h3><div>go → go<span class="s">es</span></div><div>watch → watch<span class="s">es</span></div><div>finish → finish<span class="s">es</span></div></div><div class="rc"><h3>гласная + y: + s</h3><div>play → pla<span class="s">ys</span></div></div>
+  <div class="rc"><h3>согласная + y: y → ies</h3><div>study → stud<span class="s">ies</span></div></div>
+  <div class="rc"><h3>Особый глагол</h3><div>I have → he <span class="s">has</span></div></div></div></div>`;
+  const b=el('button','btn','К заданиям');b.onclick=()=>{S.step=2;save();show()};main.append(b);
+ }else if(st<=N+1){
+  const ti=st-2,c=el('div','card');c.innerHTML=head(ti);const box=el('div');c.append(box);main.append(c);mount(ti,box);
+  const nv=el('div','nav'),back=el('button','btn ghost','Назад'),nx=el('button','btn',ti===N-1?'Показать результат':'Дальше');nx.id='next';
+  back.onclick=()=>{S.step--;save();show()};nx.onclick=()=>{S.step++;save();show()};nv.append(back,nx);main.append(nv);nav();
+ }else results(main);
+}
+function score(){let n=0,ok=0,first=0;T.forEach((t,ti)=>{if(t.ty==='open')return;t.items.forEach((_,i)=>{n++;const r=R(ti,i);if(r.ok)ok++;if(r.first)first++})});return{n,ok,first}}
+function lbl(t,it){return t.ty==='multi'?'Местоимения с -s':t.ty==='choice'?it.q.replace('___','…'):t.ty==='input'?strip(it.q).replace('___','…'):t.ty==='sort'?it.w:'Собрать предложение'}
+function ans(t,it){return t.ty==='multi'?it.a.join(', '):t.ty==='sort'?BK[it.b]:it.a}
+function mistakes(){const m=[];T.forEach((t,ti)=>{if(t.ty==='open')return;t.items.forEach((it,i)=>{const r=R(ti,i);if(r.att.length>1||!r.ok)m.push({ti,x:strip(it.e),l:lbl(t,it),ok:r.ok})})});return m}
+function report(){
+ const sc=score(),L=['Present Simple, утвердительные предложения (домашнее задание)'];
+ if(S.name.trim())L.push('Ученица: '+S.name.trim());
+ L.push(`Результат: ${sc.ok}/${sc.n}`,`С первой попытки: ${sc.first}/${sc.n}`,'');
+ T.forEach((t,ti)=>{L.push(`Задание ${ti+1}. ${t.t}`);
+  t.items.forEach((it,i)=>{const r=R(ti,i);
+   if(t.ty==='open'){L.push(`${i+1}) ${r.att[0]||'нет ответа'}`);return}
+   let s=`${i+1}) ${lbl(t,it)}: ${r.att.join(' → ')} ${r.ok?'✓':'✗'}`;
+   if(!r.ok)s+=` (правильно: ${ans(t,it)})`;else if(r.att.length>1)s+=` (попыток: ${r.att.length})`;
+   L.push(s)});L.push('')});
+ const m=mistakes();
+ if(m.length){L.push('Что стоит повторить:');m.forEach(x=>L.push('• '+x.x))}else L.push('Ошибок нет!');
+ return L.join('\n')}
+async function copy(){
+ const txt=report(),msg=$('#cp'),ta=$('#fall');let ok=false;
+ try{await navigator.clipboard.writeText(txt);ok=true}catch(e){ta.style.display='block';ta.value=txt;ta.focus();ta.select();try{ok=document.execCommand('copy')}catch(e2){}}
+ msg.textContent=ok?'Результаты скопированы. Теперь отправь их учителю.':'Автоматически скопировать не вышло. Выдели текст ниже, скопируй и отправь учителю.';
+ msg.style.color=ok?'#1d5c3e':'#7d2b1f'}
+function results(main){
+ $('#pb').style.width='100%';window.scrollTo(0,0);
+ const sc=score(),m=mistakes(),c=el('div','card hero',STAR+'<h2>Задание выполнено</h2><div class="sc">'+sc.ok+'/'+sc.n+'</div><p>С первой попытки: '+sc.first+' из '+sc.n+'</p>');
+ if(m.length){const u=el('ul','mist');m.slice(0,8).forEach(x=>u.append(el('li','',x.x)));c.append(el('p','','<b>Что стоит повторить:</b>'),u)}
+ else c.append(el('p','','Ошибок нет. Отличная работа!'));
+ const b=el('button','btn','Скопировать учителю');b.onclick=copy;
+ c.append(b,el('div','cp',''),el('textarea','',''));c.children[c.children.length-2].id='cp';c.lastChild.id='fall';c.lastChild.readOnly=true;
+ const re=el('button','btn ghost sm','Пройти заново');re.onclick=restart;const bk=el('button','btn ghost sm','Назад к заданиям');bk.onclick=()=>{S.step=N+1;save();show()};
+ const x=el('div','','');x.style.marginTop='14px';x.append(bk,re);c.append(x);main.append(c)}
+function restart(){if(!confirm('Начать заново? Все ответы сотрутся.'))return;S={name:S.name,step:0,r:{}};save();show()}
+show();
+</script>
+</body>
+</html>
